@@ -197,6 +197,79 @@ fn recorrer_matriz(){
     println!("{}", my_int_matrix [0][0]);
 }
 
+// ESTRUCTURA
+
+struct Persona {
+    nombre :String ,
+    apellido :String ,
+    edad :u32,
+}
+fn crea_persona ( nombre : String , apellido : String , edad : u32) -> Persona {
+    let nueva = Persona {
+        nombre : nombre ,
+        apellido : apellido ,
+        edad : edad ,
+    };
+
+    return nueva ;
+}
+
+fn main () {
+    let mut pepito = Persona {
+        nombre : String::from(" Pepito "), 
+        apellido : String::from(" Perez "), 
+        edad : 30 ,
+    };
+    println!(" nombre : {} {} edad {}",pepito.nombre , pepito.apellido , pepito.edad );
+    
+    // mut de datos sobre a persona
+    let mut pepito = crea_persona (" Carlos".to_string() , " Mesa".to_string() , 30);
+    muestra_datos ( pepito );
+}
+
+// ENUM
+
+enum GenderCategory {
+    Male , Female
+}
+
+fn main() {
+    let male = GenderCategory :: Male ;
+    let female = GenderCategory :: Female ;
+
+    println!(" {:?} ",male );
+    println!(" {:?} ",female );
+}
+
+
+// Ejemplo struct y enum
+
+#[ derive ( Debug )]
+enum CategoriaGenero {
+    Male , Female
+}
+
+#[ derive ( Debug )]
+struct Person {
+    nombre : String ,
+    genero : CategoriaGenero
+}
+
+fn main () {
+    let p1 = Person {
+        nombre : String::from (" Pepito "),
+        genero : CategoriaGenero::Male
+    };
+    let p2 = Person {
+        nombre : String::from (" Maria "),
+        genero : CategoriaGenero::Female
+    };
+    println!(" {:?} ", p1);
+    println!(" {:?} ", p2);
+}
+
+
+
 // EJEMPLOS
 
 //Contar palabras
